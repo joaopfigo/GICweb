@@ -24,6 +24,7 @@ const campos = [
 ];
 
 const $ = (id) => document.getElementById(id);
+let instalarApp = null;
 
 function numero(valor) {
   if (typeof valor !== "string") return Number(valor) || 0;
@@ -142,6 +143,29 @@ document.querySelectorAll(".mode-button").forEach((button) => {
   button.addEventListener("click", () => trocarPainel(button.dataset.mode));
 });
 
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  instalarApp = event;
+  $("installButton").hidden = false;
+  $("installHelp").textContent =
+    "Toque em instalar para colocar o GIC na tela inicial do celular.";
+});
+
+$("installButton").addEventListener("click", async () => {
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+  if (instalarApp) {
+    instalarApp.prompt();
+    await instalarApp.userChoice;
+    instalarApp = null;
+    return;
+  }
+
+  $("installHelp").textContent = isIOS
+    ? 'No iPhone, abra no Safari, toque em compartilhar e escolha "Adicionar à Tela de Início".'
+    : "Se o botão de instalação não aparecer, abra o menu do navegador e escolha instalar app.";
+});
+
 campos.forEach((id) => {
   $(id).addEventListener("input", () => {
     calcularRegra();
@@ -151,6 +175,12 @@ campos.forEach((id) => {
 });
 
 $("regraTipo").addEventListener("change", calcularRegra);
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  });
+}
 
 calcularRegra();
 calcularFlutuante();

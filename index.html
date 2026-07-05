@@ -3,7 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#126c45" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="GIC" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <title>GIC - Grupo de Investimento Coletivo</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -26,6 +34,20 @@
         </div>
       </section>
 
+      <section class="install-card" aria-labelledby="install-title">
+        <div>
+          <p class="eyebrow">Celular</p>
+          <h2 id="install-title">Usar como app</h2>
+          <p id="installHelp">
+            No Android, toque em instalar. No iPhone, abra no Safari, toque em
+            compartilhar e escolha "Adicionar à Tela de Início".
+          </p>
+        </div>
+        <button class="install-button" id="installButton" type="button">
+          Instalar app
+        </button>
+      </section>
+
       <section class="mode-bar" aria-label="Escolha o cálculo">
         <button class="mode-button is-active" type="button" data-mode="regra">
           Regra de três
@@ -46,7 +68,7 @@
           </div>
           <p>
             Use quando faltar uma das três informações. Preencha duas e a
-            plataforma mostra a terceira.
+            plataforma mostra a terceira. A % Taxa também pode ser entrada.
           </p>
         </div>
 

@@ -47,7 +47,8 @@ select {
 
 .hero > div,
 .panel,
-.mode-bar {
+.mode-bar,
+.install-card {
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
@@ -103,10 +104,48 @@ h2 {
   line-height: 1.45;
 }
 
+.install-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.install-card h2 {
+  font-size: 1.35rem;
+}
+
+.install-card p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.install-button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 0 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.install-button:hover,
+.install-button:focus-visible {
+  background: var(--accent-dark);
+}
+
+.install-button[hidden] {
+  display: none;
+}
+
 .mode-bar {
-  position: sticky;
-  top: 12px;
-  z-index: 2;
   display: flex;
   gap: 8px;
   margin-bottom: 18px;
@@ -265,6 +304,7 @@ input[disabled] {
 
 @media (max-width: 820px) {
   .hero,
+  .install-card,
   .panel-heading,
   .two-columns,
   .tool-card {
@@ -272,7 +312,6 @@ input[disabled] {
   }
 
   .mode-bar {
-    position: static;
     flex-direction: column;
   }
 
@@ -282,6 +321,7 @@ input[disabled] {
   }
 
   .hero > div,
+  .install-card,
   .panel {
     padding: 20px;
   }

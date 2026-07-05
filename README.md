@@ -10,6 +10,16 @@ Plataforma simples para calcular:
 
 Abra o arquivo `index.html` no navegador.
 
+Para publicar na Hostinger, envie todos os arquivos para a pasta `public_html`.
+O arquivo `index.php` já carrega a plataforma.
+
+## Instalar no celular
+
+O projeto está preparado como PWA.
+
+- Android: abrir o site no Chrome e tocar em `Instalar app`.
+- iPhone: abrir o site no Safari, tocar em compartilhar e escolher `Adicionar à Tela de Início`.
+
 ## Regras usadas
 
 `Porcentagem = Principal X % Taxa ÷ 100`
