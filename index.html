@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GIC - Grupo de Investimento Coletivo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">GIC</p>
+          <h1>Grupo de Investimento Coletivo</h1>
+          <p class="lead">
+            Plataforma simples para calcular Principal, Porcentagem, % Taxa,
+            juros flutuante e parcela com dias extras.
+          </p>
+        </div>
+        <div class="hero-note">
+          <strong>Como ler:</strong>
+          <span>
+            Porcentagem é o resultado em dinheiro que sai ou entra no
+            Principal, usando a % Taxa.
+          </span>
+        </div>
+      </section>
+
+      <section class="mode-bar" aria-label="Escolha o cálculo">
+        <button class="mode-button is-active" type="button" data-mode="regra">
+          Regra de três
+        </button>
+        <button class="mode-button" type="button" data-mode="flutuante">
+          Juros flutuante
+        </button>
+        <button class="mode-button" type="button" data-mode="emprestimo">
+          Empréstimo
+        </button>
+      </section>
+
+      <section class="panel is-active" id="regra" aria-labelledby="regra-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Cálculo base</p>
+            <h2 id="regra-title">Principal, Porcentagem e % Taxa</h2>
+          </div>
+          <p>
+            Use quando faltar uma das três informações. Preencha duas e a
+            plataforma mostra a terceira.
+          </p>
+        </div>
+
+        <div class="grid two-columns">
+          <form class="tool-card" id="regraForm">
+            <label>
+              Quero descobrir
+              <select id="regraTipo">
+                <option value="Porcentagem">Porcentagem</option>
+                <option value="Principal">Principal</option>
+                <option value="taxa">% Taxa</option>
+              </select>
+            </label>
+
+            <label>
+              Principal
+              <input id="Principal" inputmode="decimal" value="1000,00" />
+            </label>
+
+            <label>
+              Porcentagem
+              <input id="Porcentagem" inputmode="decimal" value="24,00" />
+            </label>
+
+            <label>
+              % Taxa
+              <input id="taxa" inputmode="decimal" value="2,4" />
+            </label>
+          </form>
+
+          <aside class="result-card">
+            <p class="result-label">Resultado</p>
+            <output id="regraResultado" class="result-value">R$ 24,00</output>
+            <p id="regraExplicacao" class="result-text">
+              A Porcentagem é o valor em dinheiro calculado sobre o Principal.
+            </p>
+            <div id="regraFormula" class="formula">
+              Porcentagem = Principal X % Taxa ÷ 100
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" id="flutuante" aria-labelledby="flutuante-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Distribuição mensal</p>
+            <h2 id="flutuante-title">Juros flutuante</h2>
+          </div>
+          <p>
+            Primeiro tira o fundo social. Depois divide o que sobrou pela
+            Carteira para achar a % Taxa do mês.
+          </p>
+        </div>
+
+        <div class="grid two-columns">
+          <form class="tool-card" id="flutuanteForm">
+            <label>
+              Principal (Carteira)
+              <input id="carteira" inputmode="decimal" value="50000,00" />
+            </label>
+
+            <label>
+              Dinheiro Emprestado
+              <input id="dinheiroEmprestado" inputmode="decimal" value="30000,00" />
+            </label>
+
+            <label>
+              Recebido de juro no mês
+              <input id="recebidoJuro" inputmode="decimal" value="900,00" />
+            </label>
+
+            <label>
+              Fundo social (%)
+              <input id="fundoSocial" inputmode="decimal" value="20" />
+            </label>
+
+            <label>
+              Valor do investidor na carteira
+              <input id="valorInvestidor" inputmode="decimal" value="413,60" />
+            </label>
+          </form>
+
+          <aside class="result-card stacked">
+            <div>
+              <p class="result-label">X - Fundo social</p>
+              <output id="resultadoX" class="result-value">R$ 180,00</output>
+            </div>
+            <div>
+              <p class="result-label">Y - Juro para dividir</p>
+              <output id="resultadoY" class="result-value">R$ 720,00</output>
+            </div>
+            <div>
+              <p class="result-label">H / % Taxa aplicada</p>
+              <output id="resultadoH" class="result-value">1,44%</output>
+            </div>
+            <div class="formula">
+              Y ÷ Principal (Carteira) = H<br />
+              H X 100 = % Taxa aplicada
+            </div>
+            <p id="flutuanteExplicacao" class="result-text">
+              Para R$ 413,60 na carteira, a Porcentagem do mês é R$ 5,96.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="panel" id="emprestimo" aria-labelledby="emprestimo-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Parcela</p>
+            <h2 id="emprestimo-title">Empréstimo com dias extras</h2>
+          </div>
+          <p>
+            Use quando a pessoa pegou o dinheiro antes do ciclo normal de 30
+            dias. Os dias extras recebem juros proporcional.
+          </p>
+        </div>
+
+        <div class="grid two-columns">
+          <form class="tool-card" id="emprestimoForm">
+            <label>
+              Principal
+              <input id="emprestimoPrincipal" inputmode="decimal" value="1000,00" />
+            </label>
+
+            <label>
+              Juros a pagar (%)
+              <input id="jurosPagar" inputmode="decimal" value="2,4" />
+            </label>
+
+            <label>
+              Parcelas
+              <input id="parcelas" inputmode="numeric" value="10" />
+            </label>
+
+            <label>
+              Dias extras
+              <input id="diasExtras" inputmode="numeric" value="5" />
+            </label>
+          </form>
+
+          <aside class="result-card stacked">
+            <div>
+              <p class="result-label">Juro de 30 dias</p>
+              <output id="juros30dias" class="result-value">R$ 24,00</output>
+            </div>
+            <div>
+              <p class="result-label">Juro dos dias extras</p>
+              <output id="jurosExtras" class="result-value">R$ 4,00</output>
+            </div>
+            <div>
+              <p class="result-label">Valor da Parcela</p>
+              <output id="valorParcela" class="result-value">R$ 128,00</output>
+            </div>
+            <div class="formula">
+              Juro por dia = juro de 30 dias ÷ 30<br />
+              Valor da Parcela = Principal ÷ Parcelas + juros
+            </div>
+            <p class="result-text">
+              A conta usa proporcional por dia para ficar clara e fácil de
+              conferir.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
