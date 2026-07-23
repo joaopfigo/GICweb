@@ -53,6 +53,9 @@ function calcularRegra() {
   $("Principal").disabled = regraTipo === "Principal";
   $("Porcentagem").disabled = regraTipo === "Porcentagem";
   $("taxa").disabled = regraTipo === "taxa";
+  document.querySelectorAll(".formula-item").forEach((item) => {
+    item.classList.toggle("is-active", item.dataset.resultado === regraTipo);
+  });
   resultado.classList.remove("error");
 
   if (regraTipo === "Porcentagem") {
@@ -90,7 +93,6 @@ function calcularRegra() {
 
 function calcularFlutuante() {
   const carteira = numero($("carteira").value);
-  const dinheiroEmprestado = numero($("dinheiroEmprestado").value);
   const recebidoJuro = numero($("recebidoJuro").value);
   const fundoSocial = numero($("fundoSocial").value);
   const valorInvestidor = numero($("valorInvestidor").value);
@@ -100,16 +102,13 @@ function calcularFlutuante() {
   const H = carteira > 0 ? Y / carteira : 0;
   const taxa = H * 100;
   const Porcentagem = (valorInvestidor * taxa) / 100;
-  const taxaEmprestimo =
-    dinheiroEmprestado > 0 ? (recebidoJuro * 100) / dinheiroEmprestado : 0;
 
   $("resultadoX").textContent = dinheiro.format(X);
   $("resultadoY").textContent = dinheiro.format(Y);
   $("resultadoH").textContent = `${percentual.format(taxa)}%`;
   $("flutuanteExplicacao").textContent =
-    `Para ${dinheiro.format(valorInvestidor)} na carteira, a Porcentagem do mês ` +
-    `é ${dinheiro.format(Porcentagem)}. O juro recebido equivale a ` +
-    `${percentual.format(taxaEmprestimo)}% do Dinheiro Emprestado.`;
+    `Com ${dinheiro.format(valorInvestidor)} investidos, a Porcentagem deste mês ` +
+    `é ${dinheiro.format(Porcentagem)}.`;
 }
 
 function calcularEmprestimo() {

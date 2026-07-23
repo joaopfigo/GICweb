@@ -1,10 +1,11 @@
-const CACHE_NAME = "gic-v2";
+const CACHE_NAME = "gic-v6";
 const APP_FILES = [
   "./",
   "./index.html",
   "./styles.css",
   "./script.js",
   "./manifest.webmanifest",
+  "./assets/logo-gic.jpg",
   "./icons/icon.svg",
   "./icons/icon-192.png",
   "./icons/icon-512.png",

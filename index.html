@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#126c45" />
+    <meta name="theme-color" content="#b51f27" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="GIC" />
@@ -17,35 +17,27 @@
   <body>
     <main class="app-shell">
       <section class="hero">
-        <div>
+        <div class="hero-media">
+          <img
+            src="assets/logo-gic.jpg"
+            alt="Logo do GIC - Grupo de Investimento Coletivo, formada por mãos unidas"
+          />
+        </div>
+        <div class="hero-copy">
           <p class="eyebrow">GIC</p>
           <h1>Grupo de Investimento Coletivo</h1>
           <p class="lead">
             Plataforma simples para calcular Principal, Porcentagem, % Taxa,
             juros flutuante e parcela com dias extras.
           </p>
+          <div class="hero-note">
+            <strong>Como ler:</strong>
+            <span>
+              Porcentagem é o resultado em dinheiro que sai ou entra no
+              Principal, usando a % Taxa.
+            </span>
+          </div>
         </div>
-        <div class="hero-note">
-          <strong>Como ler:</strong>
-          <span>
-            Porcentagem é o resultado em dinheiro que sai ou entra no
-            Principal, usando a % Taxa.
-          </span>
-        </div>
-      </section>
-
-      <section class="install-card" aria-labelledby="install-title">
-        <div>
-          <p class="eyebrow">Celular</p>
-          <h2 id="install-title">Usar como app</h2>
-          <p id="installHelp">
-            No Android, toque em instalar. No iPhone, abra no Safari, toque em
-            compartilhar e escolha "Adicionar à Tela de Início".
-          </p>
-        </div>
-        <button class="install-button" id="installButton" type="button">
-          Instalar app
-        </button>
       </section>
 
       <section class="mode-bar" aria-label="Escolha o cálculo">
@@ -110,6 +102,27 @@
             </div>
           </aside>
         </div>
+
+        <section class="formulas-reference" aria-labelledby="formulas-title">
+          <div class="formulas-heading">
+            <p class="eyebrow">Consulta rápida</p>
+            <h3 id="formulas-title">As três fórmulas</h3>
+          </div>
+          <div class="formula-grid">
+            <article class="formula-item is-active" data-resultado="Porcentagem">
+              <strong>Para descobrir Porcentagem</strong>
+              <span>Porcentagem = Principal X % Taxa ÷ 100</span>
+            </article>
+            <article class="formula-item" data-resultado="Principal">
+              <strong>Para descobrir Principal</strong>
+              <span>Principal = Porcentagem X 100 ÷ % Taxa</span>
+            </article>
+            <article class="formula-item" data-resultado="taxa">
+              <strong>Para descobrir % Taxa</strong>
+              <span>% Taxa = Porcentagem X 100 ÷ Principal</span>
+            </article>
+          </div>
+        </section>
       </section>
 
       <section class="panel" id="flutuante" aria-labelledby="flutuante-title">
@@ -134,6 +147,9 @@
             <label>
               Dinheiro Emprestado
               <input id="dinheiroEmprestado" inputmode="decimal" value="30000,00" />
+              <small class="field-help">
+                Informação de controle. Não altera a distribuição.
+              </small>
             </label>
 
             <label>
@@ -170,7 +186,7 @@
               H X 100 = % Taxa aplicada
             </div>
             <p id="flutuanteExplicacao" class="result-text">
-              Para R$ 413,60 na carteira, a Porcentagem do mês é R$ 5,96.
+              Com R$ 413,60 investidos, a Porcentagem deste mês é R$ 5,96.
             </p>
           </aside>
         </div>
@@ -234,6 +250,20 @@
             </p>
           </aside>
         </div>
+      </section>
+
+      <section class="install-card" aria-labelledby="install-title">
+        <div>
+          <p class="eyebrow">Celular</p>
+          <h2 id="install-title">Usar como app</h2>
+          <p id="installHelp">
+            No Android, toque em instalar. No iPhone, abra no Safari, toque em
+            compartilhar e escolha "Adicionar à Tela de Início".
+          </p>
+        </div>
+        <button class="install-button" id="installButton" type="button">
+          Instalar app
+        </button>
       </section>
     </main>
 

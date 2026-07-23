@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="104" fill="#126c45"/>
-  <circle cx="256" cy="256" r="178" fill="#dcefe5"/>
-  <text x="256" y="290" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="132" font-weight="800" fill="#0d4d34">GIC</text>
+  <rect width="512" height="512" rx="104" fill="#ffffff"/>
+  <circle cx="256" cy="256" r="184" fill="#f6dfdd"/>
+  <text x="256" y="290" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="132" font-weight="800" fill="#b51f27">GIC</text>
 </svg>
